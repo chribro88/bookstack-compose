@@ -70,7 +70,7 @@ services:
       # You may want to change the credentials used below,
       # but be aware the latter three options need to align
       # with the DB_* options for the BookStack container.
-      - MYSQL_ROOT_PASSWORD=${BOOKSTACK_MYSQL_ROOT_PASSWORD:-mysupersecretrootpassword}
+      - MYSQL_ROOT_PASSWORD=${BOOKSTACK_DB_ROOT_PASSWORD:-mysupersecretrootpassword}
       - MYSQL_DATABASE=${BOOKSTACK_DB_DATABASE:-bookstack}
       - MYSQL_USER=${BOOKSTACK_DB_USERNAME:-bookstack}
       - MYSQL_PASSWORD=${BOOKSTACK_DB_PASSWORD:-bookstack8432}
