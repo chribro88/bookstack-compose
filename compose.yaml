@@ -22,7 +22,7 @@ services:
     # release of BookStack: https://github.com/BookStackApp/BookStack/releases
     # You'll change this when wanting to update the version of BookStack used.
     image: lscr.io/linuxserver/bookstack:version-v25.07.1
-    container_name: bookstack
+    container_name: bookstack-app
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -62,7 +62,7 @@ services:
     # main version of the linuxserver mariadb container version:
     # https://github.com/linuxserver/docker-mariadb/pkgs/container/mariadb/versions?filters%5Bversion_type%5D=tagged
     image: lscr.io/linuxserver/mariadb:11.4.5
-    container_name: mariadb
+    container_name: bookstack-db
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
