@@ -47,7 +47,7 @@ services:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_app_data" folder in the same
       # directory as this compose config file.
-      - ./bookstack_app_data:/config
+      - ${BOOKSTACK_APP_DATA}:/config
     ports:
       # This exposes port 6875 for general web access.
       # Commonly you'd have a reverse proxy in front of this,
