@@ -21,7 +21,7 @@ services:
     # You should update the version here to match the latest
     # release of BookStack: https://github.com/BookStackApp/BookStack/releases
     # You'll change this when wanting to update the version of BookStack used.
-    image: lscr.io/linuxserver/bookstack:version-v25.02
+    image: lscr.io/linuxserver/bookstack:version-v25.07.1
     container_name: bookstack
     environment:
       - PUID=1000
@@ -47,7 +47,7 @@ services:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_app_data" folder in the same
       # directory as this compose config file.
-      - ${BOOKSTACK_APP_DATA}:/config
+      - ${BOOKSTACK_CONFIG_PATH}:/config
     ports:
       # This exposes port 6875 for general web access.
       # Commonly you'd have a reverse proxy in front of this,
@@ -61,7 +61,7 @@ services:
     # You should update the version here to match the latest
     # main version of the linuxserver mariadb container version:
     # https://github.com/linuxserver/docker-mariadb/pkgs/container/mariadb/versions?filters%5Bversion_type%5D=tagged
-    image: lscr.io/linuxserver/mariadb:11.4.4
+    image: lscr.io/linuxserver/mariadb:11.4.5
     container_name: mariadb
     environment:
       - PUID=1000
@@ -78,7 +78,7 @@ services:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_db_data" folder in the same
       # directory as this compose config file.
-      - ${BOOKSTACK_DB_DATA}:/config
+      - ${BOOKSTACK_DB_PATH}:/config
 
     # These ports are commented out as you don't really need this port
     # exposed for normal use, mainly only if connecting direct the the
