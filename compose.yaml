@@ -34,15 +34,15 @@ services:
       # APP_KEY must be a unique key. Generate your own by running
       # docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
       # You should keep the "base64:" part for the option value.
-      - APP_KEY=base64:3qjlIoUX4Tw6fUQgZcxMbz6lb8+dAzqpvItqHvahW1c=
+      - APP_KEY=${BOOKSTACK_APP_KEY:-base64:3qjlIoUX4Tw6fUQgZcxMbz6lb8+dAzqpvItqHvahW1c=}
 
       # The below database details are purposefully aligned with those
       # configuted for the "mariadb" service below:
-      - DB_HOST=mariadb
-      - DB_PORT=3306
-      - DB_DATABASE=bookstack
-      - DB_USERNAME=bookstack
-      - DB_PASSWORD=bookstack8432
+      - DB_HOST=${BOOKSTACK_DB_HOST:-mariadb}
+      - DB_PORT=${BOOKSTACK_DB_PORT:-3306}
+      - DB_DATABASE=${BOOKSTACK_DB_DATABASE:-bookstack}
+      - DB_USERNAME=${BOOKSTACK_DB_USERNAME:-bookstack}
+      - DB_PASSWORD=${BOOKSTACK_DB_PASSWORD:-bookstack8432}
     volumes:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_app_data" folder in the same
@@ -70,10 +70,10 @@ services:
       # You may want to change the credentials used below,
       # but be aware the latter three options need to align
       # with the DB_* options for the BookStack container.
-      - MYSQL_ROOT_PASSWORD=mysupersecretrootpassword
-      - MYSQL_DATABASE=bookstack
-      - MYSQL_USER=bookstack
-      - MYSQL_PASSWORD=bookstack8432
+      - MYSQL_ROOT_PASSWORD=${BOOKSTACK_MYSQL_ROOT_PASSWORD:-mysupersecretrootpassword}
+      - MYSQL_DATABASE=${BOOKSTACK_DB_DATABASE:-bookstack}
+      - MYSQL_USER=${BOOKSTACK_DB_USERNAME:-bookstack}
+      - MYSQL_PASSWORD=${BOOKSTACK_DB_PASSWORD:-bookstack8432}
     volumes:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_db_data" folder in the same
